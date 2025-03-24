@@ -32,7 +32,7 @@ export const authController = new Elysia({
             );
 
             if (!isValidPassword) {
-                throw new Error("Invalid password");
+                throw error("Unauthorized", "Invalid password");
             }
 
             const token = jwt.sign(

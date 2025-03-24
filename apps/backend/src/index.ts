@@ -11,6 +11,19 @@ const app = new Elysia()
             allowedHeaders: ["Content-Type", "Authorization"],
         })
     )
+    // .onError(({ set, error, code }) => {
+    //     console.error(error);
+    //     if (typeof code === "number") {
+    //         set.status = code;
+    //         return {
+    //             error: error.response,
+    //         };
+    //     } else {
+    //         return {
+    //             error: error,
+    //         };
+    //     }
+    // })
     .get("/", () => "Hello Elysia")
     .use(authController)
     .use(roomController)

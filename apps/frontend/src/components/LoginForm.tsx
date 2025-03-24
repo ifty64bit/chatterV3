@@ -11,21 +11,23 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import client from "@apps/api";
+import { useLogin } from "@/api/auth.api";
 
 const loginSchema = z.object({
     username: z.string().nonempty(),
     password: z.string().nonempty(),
 });
 
+export type LoginFormValues = z.infer<typeof loginSchema>;
+
 function LoginForm() {
+    const loginMutation = useLogin();
+
     async function onSubmit(values: z.infer<typeof loginSchema>) {
-        console.log(values);
-        const { response } = await client.auth.login.post(values);
-        console.log(response);
+        loginMutation.mutate(values);
     }
 
-    const form = useForm<z.infer<typeof loginSchema>>({
+    const form = useForm<LoginFormValues>({
         resolver: zodResolver(loginSchema),
     });
     return (
