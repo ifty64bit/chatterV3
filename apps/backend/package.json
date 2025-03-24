@@ -1,0 +1,25 @@
+{
+    "name": "@apps/backend",
+    "version": "1.0.50",
+    "scripts": {
+        "dev": "bun run --watch src/index.ts"
+    },
+    "dependencies": {
+        "@elysiajs/cors": "^1.2.0",
+        "bcryptjs": "^3.0.2",
+        "dotenv": "^16.4.7",
+        "drizzle-orm": "^0.41.0",
+        "elysia": "latest",
+        "pg": "^8.14.1"
+    },
+    "devDependencies": {
+        "@types/pg": "^8.11.11",
+        "bun-types": "latest",
+        "drizzle-kit": "^0.30.5",
+        "tsx": "^4.19.3"
+    },
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "module": "src/index.js"
+}

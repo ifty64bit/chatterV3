@@ -1,0 +1,38 @@
+@api = http://localhost:3000
+@token = 
+
+GET {{api}}/
+
+###
+
+POST {{api}}/auth/login
+Content-Type: application/json
+
+{
+    "username": "ifty64bit",
+    "password": "toor"
+}
+
+###
+POST {{api}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "ifty64bit2",
+    "email": "ifty64bit+2@gmail.com",
+    "password": "toor"
+}
+
+###
+GET {{api}}/room
+Authorization: Bearer {{token}}
+
+###
+POST {{api}}/r
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "participants": ["60f3b3b3b3b3b3b3b3b3b3b3", "60f3b3b3b3b3b3b3b3b3b4"],
+    "is_group": false
+}
