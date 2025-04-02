@@ -12,16 +12,11 @@ const app = new Elysia()
         })
     )
     // .onError(({ set, error, code }) => {
-    //     console.error(error);
-    //     if (typeof code === "number") {
-    //         set.status = code;
-    //         return {
-    //             error: error.response,
-    //         };
-    //     } else {
-    //         return {
-    //             error: error,
-    //         };
+    //     console.log(error);
+    //     console.log(code);
+
+    //     if (typeof error === "string") {
+    //         return error;
     //     }
     // })
     .get("/", () => "Hello Elysia")

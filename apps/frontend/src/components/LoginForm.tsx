@@ -21,7 +21,14 @@ const loginSchema = z.object({
 export type LoginFormValues = z.infer<typeof loginSchema>;
 
 function LoginForm() {
-    const loginMutation = useLogin();
+    const loginMutation = useLogin({
+        onSuccess: (data) => {
+            console.log("DATA: :", data.token);
+        },
+        onError: (e) => {
+            console.error("Error: ", e?.status, e?.value);
+        },
+    });
 
     async function onSubmit(values: z.infer<typeof loginSchema>) {
         loginMutation.mutate(values);

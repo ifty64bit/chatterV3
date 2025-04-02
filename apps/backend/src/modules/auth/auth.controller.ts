@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import { Elysia, t } from "elysia";
 import db from "../../db";
-import { usersTable } from "../../db/schema";
+import { messageTable, usersTable } from "../../db/schema";
 import { eq } from "drizzle-orm";
 import jwt from "jsonwebtoken";
 
